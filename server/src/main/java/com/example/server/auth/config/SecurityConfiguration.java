@@ -47,6 +47,8 @@ public class SecurityConfiguration {
         .authorizeHttpRequests((authorize) -> authorize
             .antMatchers("/swagger-ui/**", "/v3/api-docs/**")
             .permitAll()
+            .antMatchers("/api/auth/**")
+            .permitAll()
             .anyRequest()
             .authenticated())
         .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)

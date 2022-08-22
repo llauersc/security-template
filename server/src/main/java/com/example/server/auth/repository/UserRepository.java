@@ -10,4 +10,5 @@ import com.example.server.auth.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
   Optional<User> findUserById(Long id);
+  User findByUsername(String username);
 }
