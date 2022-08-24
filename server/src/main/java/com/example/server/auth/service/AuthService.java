@@ -44,11 +44,13 @@ public class AuthService {
 
   @Transactional
   public void signup(RegisterRequest registerRequest) {
-    User user = new User(
-        registerRequest.getUsername(),
-        passwordEncoder.encode(registerRequest.getPassword()),
-        registerRequest.getEmail(),
-        true);
+
+    User user = User.builder()
+        .username(registerRequest.getUsername())
+        .password(passwordEncoder.encode(registerRequest.getPassword()))
+        .email(registerRequest.getEmail())
+        .enabled(true)
+        .build();
 
     userRepository.save(user);
   }
