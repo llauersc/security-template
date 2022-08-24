@@ -61,7 +61,7 @@ public class AuthController {
     return ResponseEntity.status(HttpStatus.OK).body("Refresh Token Deleted Successfully!!");
   }
 
-  @PostMapping("/refresh/token")
+  @PostMapping("/refresh")
   public ResponseEntity<AuthenticationResponse> refreshToken(
       @Valid @RequestBody RefreshTokenRequest refreshTokenRequest) {
 
