@@ -6,10 +6,14 @@ import java.security.interfaces.RSAPublicKey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
@@ -34,6 +38,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfiguration {
 
+  final private UserDetailsService userDetailsService;
+
   @Value("${jwt.public.key}")
   RSAPublicKey publicKey;
 
@@ -45,9 +51,9 @@ public class SecurityConfiguration {
     http
         .csrf().disable()
         .authorizeHttpRequests((authorize) -> authorize
-            .antMatchers("/swagger-ui/**", "/v3/api-docs/**")
-            .permitAll()
             .antMatchers("/api/auth/**")
+            .permitAll()
+            .antMatchers("/swagger-ui/**", "/v3/api-docs/**")
             .permitAll()
             .anyRequest()
             .authenticated())
@@ -58,6 +64,18 @@ public class SecurityConfiguration {
             .accessDeniedHandler(new BearerTokenAccessDeniedHandler()));
 
     return http.build();
+  }
+
+  @Bean
+  public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
+      throws Exception {
+    return authenticationConfiguration.getAuthenticationManager();
+  }
+
+  public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+    authenticationManagerBuilder
+        .userDetailsService(userDetailsService)
+        .passwordEncoder(passwordEncoder());
   }
 
   @Bean

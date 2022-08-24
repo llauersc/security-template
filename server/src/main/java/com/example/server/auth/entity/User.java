@@ -1,27 +1,24 @@
 package com.example.server.auth.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.EntityListeners;
+
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
+@Data
 @Entity
 @AllArgsConstructor
-@Data
-public class User {
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
-  private String email;
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper=false)
+@EntityListeners(AuditingEntityListener.class)
+public class User extends BaseEntity {
   private String username;
   private String password;
-
-  public User(String mail, String user, String pass) {
-    this.email = mail;
-    this.username = user;
-    this.password = pass;
-  }
+  private String email;
+  private Boolean enabled;
 }
