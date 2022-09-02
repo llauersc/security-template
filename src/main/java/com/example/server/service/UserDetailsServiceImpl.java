@@ -1,4 +1,4 @@
-package com.example.server.auth.service;
+package com.example.server.service;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -10,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.server.auth.entity.User;
-import com.example.server.auth.repository.UserRepository;
+import com.example.server.entity.User;
+import com.example.server.repository.UserRepository;
 
 import lombok.AllArgsConstructor;
 

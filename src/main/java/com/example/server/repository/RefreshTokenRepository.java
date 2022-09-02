@@ -1,11 +1,11 @@
-package com.example.server.auth.repository;
+package com.example.server.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.server.auth.entity.RefreshToken;
+import com.example.server.entity.RefreshToken;
 
 @Repository
 public interface RefreshTokenRepository extends JpaRepository<RefreshToken, Long> {

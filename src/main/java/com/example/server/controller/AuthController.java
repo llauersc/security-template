@@ -1,4 +1,4 @@
-package com.example.server.auth.controller;
+package com.example.server.controller;
 
 import java.time.Instant;
 
@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.server.auth.dto.AuthenticationResponse;
-import com.example.server.auth.dto.LoginRequest;
-import com.example.server.auth.dto.RefreshTokenRequest;
-import com.example.server.auth.dto.RegisterRequest;
-import com.example.server.auth.security.JwtProvider;
-import com.example.server.auth.service.AuthService;
-import com.example.server.auth.service.RefreshTokenService;
+import com.example.server.dto.AuthenticationResponse;
+import com.example.server.dto.LoginRequest;
+import com.example.server.dto.RefreshTokenRequest;
+import com.example.server.dto.RegisterRequest;
+import com.example.server.security.JwtProvider;
+import com.example.server.service.AuthService;
+import com.example.server.service.RefreshTokenService;
 
 import lombok.AllArgsConstructor;
 

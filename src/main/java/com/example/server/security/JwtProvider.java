@@ -1,4 +1,4 @@
-package com.example.server.auth.security;
+package com.example.server.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;

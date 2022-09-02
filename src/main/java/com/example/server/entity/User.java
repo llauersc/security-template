@@ -1,4 +1,4 @@
-package com.example.server.auth.entity;
+package com.example.server.entity;
 
 import java.time.Instant;
 

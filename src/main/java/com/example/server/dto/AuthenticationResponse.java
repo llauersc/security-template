@@ -1,4 +1,4 @@
-package com.example.server.auth.dto;
+package com.example.server.dto;
 
 import java.time.Instant;
 

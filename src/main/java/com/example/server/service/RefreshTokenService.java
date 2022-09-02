@@ -1,13 +1,13 @@
-package com.example.server.auth.service;
+package com.example.server.service;
 
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.server.auth.entity.RefreshToken;
-import com.example.server.auth.exception.CustomException;
-import com.example.server.auth.repository.RefreshTokenRepository;
+import com.example.server.entity.RefreshToken;
+import com.example.server.exception.CustomException;
+import com.example.server.repository.RefreshTokenRepository;
 
 import lombok.AllArgsConstructor;
 

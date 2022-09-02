@@ -1,4 +1,4 @@
-package com.example.server.auth.service;
+package com.example.server.service;
 
 import java.time.Instant;
 
@@ -6,13 +6,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.server.auth.dto.AuthenticationResponse;
-import com.example.server.auth.dto.RefreshTokenRequest;
-import com.example.server.auth.dto.RegisterRequest;
-import com.example.server.auth.entity.User;
-import com.example.server.auth.exception.CustomException;
-import com.example.server.auth.repository.UserRepository;
-import com.example.server.auth.security.JwtProvider;
+import com.example.server.dto.AuthenticationResponse;
+import com.example.server.dto.RefreshTokenRequest;
+import com.example.server.dto.RegisterRequest;
+import com.example.server.entity.User;
+import com.example.server.exception.CustomException;
+import com.example.server.repository.UserRepository;
+import com.example.server.security.JwtProvider;
 
 import lombok.AllArgsConstructor;
 
