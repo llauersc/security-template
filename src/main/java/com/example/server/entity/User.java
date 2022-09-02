@@ -40,9 +40,4 @@ public class User {
 
   @LastModifiedDate
   private Instant updatedAt;
-
-  @PreUpdate
-  public void setChangeDate() {
-    this.updatedAt = Instant.now();
-  }
 }
